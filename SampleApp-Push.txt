@@ -1,0 +1,1586 @@
+
+D:\Kishan\Workspaces\PCF-Workspace>git clone https://github.com/cloudfoundry-samples/cf-sample-app-spring.git
+Cloning into 'cf-sample-app-spring'...
+fatal: unable to access 'https://github.com/cloudfoundry-samples/cf-sample-app-spring.git/': Failed to connect to github.com port 443: Connection refused
+
+D:\Kishan\Workspaces\PCF-Workspace>git config --global http.proxy http://proxy.cognizant.com:6050
+
+D:\Kishan\Workspaces\PCF-Workspace>git config --global https.proxy https://proxy.cognizant.com:6050
+
+D:\Kishan\Workspaces\PCF-Workspace>git clone https://github.com/cloudfoundry-samples/cf-sample-app-spring.git
+Cloning into 'cf-sample-app-spring'...
+remote: Counting objects: 69, done.
+remote: Total 69 (delta 0), reused 0 (delta 0), pack-reused 69
+Unpacking objects: 100% (69/69), done.
+
+D:\Kishan\Workspaces\PCF-Workspace>cd cf-sample-app-spring
+
+D:\Kishan\Workspaces\PCF-Workspace\cf-sample-app-spring>cf login -a https://api.run.pivotal.io
+API endpoint: https://api.run.pivotal.io
+
+Email> kishansharma.narayanan@cognizant.com
+
+Password>
+Authenticating...
+OK
+
+Targeted org kishan-org
+
+Targeted space development
+
+
+
+API endpoint:   https://api.run.pivotal.io (API version: 2.61.0)
+User:           kishansharma.narayanan@cognizant.com
+Org:            kishan-org
+Space:          development
+
+D:\Kishan\Workspaces\PCF-Workspace\cf-sample-app-spring>cf push
+Using manifest file D:\Kishan\Workspaces\PCF-Workspace\cf-sample-app-spring\manifest.yml
+
+Creating app cf-spring in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+OK
+
+Creating route cf-spring-subvertebral-stoplight.cfapps.io...
+OK
+
+Binding cf-spring-subvertebral-stoplight.cfapps.io to cf-spring...
+OK
+
+Uploading cf-spring...
+Uploading app files from: D:\Kishan\Workspaces\PCF-Workspace\cf-sample-app-spring
+Uploading 1M, 44 files
+Done uploading
+OK
+
+Starting app cf-spring in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Downloading dotnet_core_buildpack_beta...
+Downloading ruby_buildpack...
+Downloading java_buildpack...
+Downloading staticfile_buildpack...
+Downloading python_buildpack...
+Downloaded python_buildpack
+Downloaded dotnet_core_buildpack_beta
+Downloading nodejs_buildpack...
+Downloaded ruby_buildpack
+Downloading liberty_buildpack...
+Downloaded java_buildpack
+Downloading php_buildpack...
+Downloading go_buildpack...
+Downloaded staticfile_buildpack
+Downloading binary_buildpack...
+Downloaded php_buildpack
+Downloaded liberty_buildpack
+Downloaded nodejs_buildpack
+Downloaded go_buildpack
+Downloaded binary_buildpack
+Creating container
+Successfully created container
+Staging...
+Downloaded app package (1.2M)
+Downloading app package...
+-----> Downloading Open Jdk JRE 1.8.0_101 from https://java-buildpack.cloudfoundry.org/openjdk/trusty/x86_64/openjdk-1.8.0_101.tar.gz (found in cache)
+-----> Java Buildpack Version: v3.9 (offline) | https://github.com/cloudfoundry/java-buildpack.git#b050954
+       Expanding Open Jdk JRE to .java-buildpack/open_jdk_jre (1.1s)
+-----> Downloading Open JDK Like Memory Calculator 2.0.2_RELEASE from https://java-buildpack.cloudfoundry.org/memory-calculator/trusty/x86_64/memory-calculator-2.0.2_RE
+LEASE.tar.gz (found in cache)
+       Memory Settings: -Xms317161K -Xss228K -Xmx317161K -XX:MaxMetaspaceSize=64M -XX:MetaspaceSize=64M
+-----> Downloading Spring Boot CLI 1.4.0_RELEASE from https://java-buildpack.cloudfoundry.org/spring-boot-cli/spring-boot-cli-1.4.0_RELEASE.tar.gz (found in cache)
+       Expanding Spring Boot CLI to .java-buildpack/spring_boot_cli (0.1s)
+Staging complete
+Uploading droplet, build artifacts cache...
+Uploading build artifacts cache...
+Uploaded build artifacts cache (108B)
+Uploaded droplet (53.2M)
+Uploading complete
+Destroying container
+Successfully destroyed container
+
+0 of 1 instances running, 1 starting
+1 of 1 instances running
+
+App started
+
+
+OK
+
+App cf-spring was started using this command `CALCULATED_MEMORY=$($PWD/.java-buildpack/open_jdk_jre/bin/java-buildpack-memory-calculator-2.0.2_RELEASE -memorySizes=meta
+space:64m..,stack:228k.. -memoryWeights=heap:65,metaspace:10,native:15,stack:10 -memoryInitials=heap:100%,metaspace:100% -stackThreads=300 -totMemory=$MEMORY_LIMIT) &&
+SERVER_PORT=$PORT JAVA_HOME=$PWD/.java-buildpack/open_jdk_jre JAVA_OPTS="-Djava.io.tmpdir=$TMPDIR -XX:OnOutOfMemoryError=$PWD/.java-buildpack/open_jdk_jre/bin/killjava.
+sh $CALCULATED_MEMORY" exec $PWD/.java-buildpack/spring_boot_cli/bin/spring run app.groovy`
+
+Showing health and status for app cf-spring in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+OK
+
+requested state: started
+instances: 1/1
+usage: 512M x 1 instances
+urls: cf-spring-subvertebral-stoplight.cfapps.io
+last uploaded: Thu Sep 15 12:10:14 UTC 2016
+stack: cflinuxfs2
+buildpack: java-buildpack=v3.9-offline-https://github.com/cloudfoundry/java-buildpack.git#b050954 open-jdk-like-jre=1.8.0_101 open-jdk-like-memory-calculator=2.0.2_RELE
+ASE spring-boot-cli=1.4.0_RELEASE
+
+     state     since                    cpu    memory           disk         details
+#0   running   2016-09-15 05:40:59 PM   0.0%   279.1M of 512M   155M of 1G
+
+D:\Kishan\Workspaces\PCF-Workspace\cf-sample-app-spring>cf logs cf-spring --recent
+Connected, dumping recent logs for app cf-spring in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+
+2016-09-15T17:39:26.19+0530 [API/7]      OUT Created app with guid 7416259d-2763-49e2-a71a-43e417396edf
+2016-09-15T17:39:31.89+0530 [API/4]      OUT Updated app with guid 7416259d-2763-49e2-a71a-43e417396edf ({"route"=>"b95d915f-2287-48f6-ab60-ce6526820ffd", :verb=>"add",
+ :relation=>:routes, :related_guid=>"b95d915f-2287-48f6-ab60-ce6526820ffd"})
+2016-09-15T17:40:20.96+0530 [API/1]      OUT Updated app with guid 7416259d-2763-49e2-a71a-43e417396edf ({"state"=>"STARTED"})
+2016-09-15T17:40:21.28+0530 [STG/0]      OUT Downloading dotnet_core_buildpack_beta...
+2016-09-15T17:40:21.28+0530 [STG/0]      OUT Downloading ruby_buildpack...
+2016-09-15T17:40:21.28+0530 [STG/0]      OUT Downloading java_buildpack...
+2016-09-15T17:40:21.28+0530 [STG/0]      OUT Downloading staticfile_buildpack...
+2016-09-15T17:40:21.28+0530 [STG/0]      OUT Downloading python_buildpack...
+2016-09-15T17:40:21.33+0530 [STG/0]      OUT Downloaded python_buildpack
+2016-09-15T17:40:21.33+0530 [STG/0]      OUT Downloaded dotnet_core_buildpack_beta
+2016-09-15T17:40:21.33+0530 [STG/0]      OUT Downloading nodejs_buildpack...
+2016-09-15T17:40:21.34+0530 [STG/0]      OUT Downloaded ruby_buildpack
+2016-09-15T17:40:21.34+0530 [STG/0]      OUT Downloading liberty_buildpack...
+2016-09-15T17:40:21.34+0530 [STG/0]      OUT Downloaded java_buildpack
+2016-09-15T17:40:21.34+0530 [STG/0]      OUT Downloading php_buildpack...
+2016-09-15T17:40:21.34+0530 [STG/0]      OUT Downloading go_buildpack...
+2016-09-15T17:40:21.35+0530 [STG/0]      OUT Downloaded staticfile_buildpack
+2016-09-15T17:40:21.35+0530 [STG/0]      OUT Downloading binary_buildpack...
+2016-09-15T17:40:21.38+0530 [STG/0]      OUT Downloaded liberty_buildpack
+2016-09-15T17:40:21.38+0530 [STG/0]      OUT Downloaded nodejs_buildpack
+2016-09-15T17:40:21.38+0530 [STG/0]      OUT Downloaded php_buildpack
+2016-09-15T17:40:21.40+0530 [STG/0]      OUT Downloaded go_buildpack
+2016-09-15T17:40:21.40+0530 [STG/0]      OUT Downloaded binary_buildpack
+2016-09-15T17:40:21.40+0530 [STG/0]      OUT Creating container
+2016-09-15T17:40:22.35+0530 [STG/0]      OUT Successfully created container
+2016-09-15T17:40:22.35+0530 [STG/0]      OUT Downloading app package...
+2016-09-15T17:40:22.63+0530 [STG/0]      OUT Downloaded app package (1.2M)
+2016-09-15T17:40:22.63+0530 [STG/0]      OUT Staging...
+2016-09-15T17:40:24.27+0530 [STG/0]      OUT -----> Java Buildpack Version: v3.9 (offline) | https://github.com/cloudfoundry/java-buildpack.git#b050954
+2016-09-15T17:40:24.43+0530 [STG/0]      OUT -----> Downloading Open Jdk JRE 1.8.0_101 from https://java-buildpack.cloudfoundry.org/openjdk/trusty/x86_64/openjdk-1.8.0_
+101.tar.gz (found in cache)
+2016-09-15T17:40:25.62+0530 [STG/0]      OUT        Expanding Open Jdk JRE to .java-buildpack/open_jdk_jre (1.1s)
+2016-09-15T17:40:25.63+0530 [STG/0]      OUT -----> Downloading Open JDK Like Memory Calculator 2.0.2_RELEASE from https://java-buildpack.cloudfoundry.org/memory-calcul
+ator/trusty/x86_64/memory-calculator-2.0.2_RELEASE.tar.gz (found in cache)
+2016-09-15T17:40:25.66+0530 [STG/0]      OUT        Memory Settings: -Xms317161K -Xss228K -Xmx317161K -XX:MaxMetaspaceSize=64M -XX:MetaspaceSize=64M
+2016-09-15T17:40:25.67+0530 [STG/0]      OUT -----> Downloading Spring Boot CLI 1.4.0_RELEASE from https://java-buildpack.cloudfoundry.org/spring-boot-cli/spring-boot-c
+li-1.4.0_RELEASE.tar.gz (found in cache)
+2016-09-15T17:40:25.79+0530 [STG/0]      OUT        Expanding Spring Boot CLI to .java-buildpack/spring_boot_cli (0.1s)
+2016-09-15T17:40:33.55+0530 [STG/0]      OUT Staging complete
+2016-09-15T17:40:33.55+0530 [STG/0]      OUT Uploading droplet, build artifacts cache...
+2016-09-15T17:40:33.55+0530 [STG/0]      OUT Uploading build artifacts cache...
+2016-09-15T17:40:33.62+0530 [STG/0]      OUT Uploaded build artifacts cache (108B)
+2016-09-15T17:40:41.60+0530 [STG/0]      OUT Uploaded droplet (53.2M)
+2016-09-15T17:40:41.61+0530 [STG/0]      OUT Uploading complete
+2016-09-15T17:40:41.69+0530 [STG/0]      OUT Destroying container
+2016-09-15T17:40:42.35+0530 [CELL/0]     OUT Creating container
+2016-09-15T17:40:43.35+0530 [CELL/0]     OUT Successfully created container
+2016-09-15T17:40:44.25+0530 [STG/0]      OUT Successfully destroyed container
+2016-09-15T17:40:46.45+0530 [CELL/0]     OUT Starting health monitoring of container
+2016-09-15T17:40:51.84+0530 [APP/0]      OUT Resolving dependencies...
+2016-09-15T17:40:53.07+0530 [APP/0]      OUT   .   ____          _            __ _ _
+2016-09-15T17:40:53.07+0530 [APP/0]      OUT ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2016-09-15T17:40:53.07+0530 [APP/0]      OUT  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2016-09-15T17:40:53.07+0530 [APP/0]      OUT   '  |____| .__|_| |_|_| |_\__, | / / / /
+2016-09-15T17:40:53.07+0530 [APP/0]      OUT  =========|_|==============|___/=/_/_/_/
+2016-09-15T17:40:53.40+0530 [APP/0]      OUT 2016-09-15 12:10:53.407  INFO 45 --- [       runner-0] o.s.boot.SpringApplication               : No active profile set, fa
+lling back to default profiles: default
+2016-09-15T17:40:53.88+0530 [APP/0]      OUT 2016-09-15 12:10:53.886  INFO 45 --- [       runner-0] ationConfigEmbeddedWebApplicationContext : Refreshing org.springfram
+ework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4394ec67: startup date [Thu Sep 15 12:10:53 UTC 2016]; root of context hierarchy
+2016-09-15T17:40:56.59+0530 [APP/0]      OUT 2016-09-15 12:10:56.588  INFO 45 --- [       runner-0] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with p
+ort(s): 8080 (http)
+2016-09-15T17:40:56.63+0530 [APP/0]      OUT 2016-09-15 12:10:56.624  INFO 45 --- [       runner-0] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2016-09-15T17:40:56.63+0530 [APP/0]      OUT 2016-09-15 12:10:56.625  INFO 45 --- [       runner-0] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine:
+Apache Tomcat/8.5.4
+2016-09-15T17:40:56.82+0530 [APP/0]      OUT 2016-09-15 12:10:56.819  INFO 45 --- [ost-startStop-1] org.apache.catalina.loader.WebappLoader  : Unknown loader org.spring
+framework.boot.cli.compiler.ExtendedGroovyClassLoader$DefaultScopeParentClassLoader@14600662 class org.springframework.boot.cli.compiler.ExtendedGroovyClassLoader$Defau
+ltScopeParentClassLoader
+2016-09-15T17:40:56.93+0530 [APP/0]      OUT 2016-09-15 12:10:56.900  INFO 45 --- [ost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embed
+ded WebApplicationContext
+2016-09-15T17:40:56.93+0530 [APP/0]      OUT 2016-09-15 12:10:56.900  INFO 45 --- [ost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContex
+t: initialization completed in 3014 ms
+2016-09-15T17:40:57.27+0530 [APP/0]      OUT 2016-09-15 12:10:57.255  INFO 45 --- [ost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatc
+herServlet' to [/]
+2016-09-15T17:40:57.27+0530 [APP/0]      OUT 2016-09-15 12:10:57.261  INFO 45 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characte
+rEncodingFilter' to: [/*]
+2016-09-15T17:40:57.27+0530 [APP/0]      OUT 2016-09-15 12:10:57.261  INFO 45 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHt
+tpMethodFilter' to: [/*]
+2016-09-15T17:40:57.27+0530 [APP/0]      OUT 2016-09-15 12:10:57.262  INFO 45 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutF
+ormContentFilter' to: [/*]
+2016-09-15T17:40:57.27+0530 [APP/0]      OUT 2016-09-15 12:10:57.262  INFO 45 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestC
+ontextFilter' to: [/*]
+2016-09-15T17:40:57.95+0530 [APP/0]      OUT 2016-09-15 12:10:57.955  INFO 45 --- [       runner-0] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAd
+vice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4394ec67: startup date [Thu Sep 15 12:10:53 UTC 2016]; root of context hie
+rarchy
+2016-09-15T17:40:58.03+0530 [APP/0]      OUT 2016-09-15 12:10:58.034  INFO 45 --- [       runner-0] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/]}" onto publi
+c java.lang.String Application.index(org.springframework.ui.Model)
+2016-09-15T17:40:58.04+0530 [APP/0]      OUT 2016-09-15 12:10:58.041  INFO 45 --- [       runner-0] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto
+public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(
+javax.servlet.http.HttpServletRequest)
+2016-09-15T17:40:58.09+0530 [APP/0]      OUT 2016-09-15 12:10:58.089  INFO 45 --- [       runner-0] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars
+/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-09-15T17:40:58.09+0530 [APP/0]      OUT 2016-09-15 12:10:58.089  INFO 45 --- [       runner-0] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] ont
+o handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-09-15T17:40:58.77+0530 [APP/0]      OUT 2016-09-15 12:10:58.774  INFO 45 --- [       runner-0] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX
+ exposure on startup
+2016-09-15T17:40:58.85+0530 [APP/0]      OUT 2016-09-15 12:10:58.850  INFO 45 --- [       runner-0] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s)
+: 8080 (http)
+2016-09-15T17:40:58.85+0530 [APP/0]      OUT 2016-09-15 12:10:58.858  INFO 45 --- [       runner-0] o.s.boot.SpringApplication               : Started application in 6.
+427 seconds (JVM running for 12.321)
+2016-09-15T17:40:59.20+0530 [CELL/0]     OUT Container became healthy
+
+D:\Kishan\Workspaces\PCF-Workspace\cf-sample-app-spring>
+D:\Kishan\Workspaces\PCF-Workspace\cf-sample-app-spring>cf marketplace -s elephantsql
+Getting service plan information for service elephantsql as kishansharma.narayanan@cognizant.com...
+OK
+
+service plan   description                                            free or paid
+turtle         4 concurrent connections, 20MB Storage                 free
+panda          20 concurrent connections, 2GB Storage                 paid
+hippo          300 concurrent connections, 100 GB Storage             paid
+elephant       300 concurrent connections, 1000 GB Storage, 500Mbps   paid
+
+D:\Kishan\Workspaces\PCF-Workspace\cf-sample-app-spring>cf create-service elephantsql turtle cf-spring-db
+Creating service instance cf-spring-db in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+OK
+
+D:\Kishan\Workspaces\PCF-Workspace\cf-sample-app-spring>cf bind-service cf-spring cf-spring-db
+Binding service cf-spring-db to app cf-spring in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+OK
+TIP: Use 'cf restage cf-spring' to ensure your env variable changes take effect
+
+D:\Kishan\Workspaces\PCF-Workspace\cf-sample-app-spring>cf restart cf-spring
+Stopping app cf-spring in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+OK
+
+Starting app cf-spring in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+
+0 of 1 instances running, 1 starting
+0 of 1 instances running, 1 starting
+0 of 1 instances running, 1 starting
+1 of 1 instances running
+
+App started
+
+
+OK
+
+App cf-spring was started using this command `CALCULATED_MEMORY=$($PWD/.java-buildpack/open_jdk_jre/bin/java-buildpack-memory-calculator-2.0.2_RELEASE -memorySizes=meta
+space:64m..,stack:228k.. -memoryWeights=heap:65,metaspace:10,native:15,stack:10 -memoryInitials=heap:100%,metaspace:100% -stackThreads=300 -totMemory=$MEMORY_LIMIT) &&
+SERVER_PORT=$PORT JAVA_HOME=$PWD/.java-buildpack/open_jdk_jre JAVA_OPTS="-Djava.io.tmpdir=$TMPDIR -XX:OnOutOfMemoryError=$PWD/.java-buildpack/open_jdk_jre/bin/killjava.
+sh $CALCULATED_MEMORY" exec $PWD/.java-buildpack/spring_boot_cli/bin/spring run app.groovy`
+
+Showing health and status for app cf-spring in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+OK
+
+requested state: started
+instances: 1/1
+usage: 512M x 1 instances
+urls: cf-spring-subvertebral-stoplight.cfapps.io
+last uploaded: Thu Sep 15 12:10:14 UTC 2016
+stack: cflinuxfs2
+buildpack: java-buildpack=v3.9-offline-https://github.com/cloudfoundry/java-buildpack.git#b050954 open-jdk-like-jre=1.8.0_101 open-jdk-like-memory-calculator=2.0.2_RELE
+ASE spring-boot-cli=1.4.0_RELEASE
+
+     state     since                    cpu    memory           disk           details
+#0   running   2016-09-15 05:48:05 PM   0.0%   292.8M of 512M   154.9M of 1G
+
+D:\Kishan\Workspaces\PCF-Workspace\cf-sample-app-spring>cf services
+Getting services in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+OK
+
+name           service       plan     bound apps   last operation
+cf-spring-db   elephantsql   turtle   cf-spring    create succeeded
+
+D:\Kishan\Workspaces\PCF-Workspace\cf-sample-app-spring>cf app cf-spring
+Showing health and status for app cf-spring in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+OK
+
+requested state: started
+instances: 1/1
+usage: 512M x 1 instances
+urls: cf-spring-subvertebral-stoplight.cfapps.io
+last uploaded: Thu Sep 15 12:10:14 UTC 2016
+stack: cflinuxfs2
+buildpack: java-buildpack=v3.9-offline-https://github.com/cloudfoundry/java-buildpack.git#b050954 open-jdk-like-jre=1.8.0_101 open-jdk-like-memory-calculator=2.0.2_RELE
+ASE spring-boot-cli=1.4.0_RELEASE
+
+     state     since                    cpu    memory           disk         details
+#0   running   2016-09-15 05:48:05 PM   0.3%   326.4M of 512M   155M of 1G
+
+D:\Kishan\Workspaces\PCF-Workspace\cf-sample-app-spring>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+spring.thymeleaf.cache: false^M
+spring.mvc.favicon.enabled: false^M
+^M
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+vcap@48d0ba5d-d31c-468c-521e-f523d16f998f:~/app$
+vcap@48d0ba5d-d31c-468c-521e-f523d16f998f:~/app$
+vcap@48d0ba5d-d31c-468c-521e-f523d16f998f:~/app$ ls -ltrh
+total 20K
+-rwxr--r-- 1 vcap vcap  102 Sep 15 12:37 README.md
+-rwxr--r-- 1 vcap vcap   68 Sep 15 12:37 application.properties
+-rwxr--r-- 1 vcap vcap  989 Sep 15 12:37 app.groovy
+drwxr-xr-x 2 vcap vcap 4.0K Sep 15 12:38 templates
+drwxr-xr-x 6 vcap vcap 4.0K Sep 15 12:38 public
+vcap@48d0ba5d-d31c-468c-521e-f523d16f998f:~/app$ cd ..
+vcap@48d0ba5d-d31c-468c-521e-f523d16f998f:~$ ls
+app  logs  staging_info.yml  tmp
+vcap@48d0ba5d-d31c-468c-521e-f523d16f998f:~$ cd staging_info.yml
+bash: cd: staging_info.yml: Not a directory
+vcap@48d0ba5d-d31c-468c-521e-f523d16f998f:~$ cat staging_info.yml
+{"detected_buildpack":"java-buildpack=v3.9-offline-https://github.com/cloudfoundry/java-buildpack.git#b050954 open-jdk-like-jre=1.8.0_101 open-jdk-like-memory-calculato
+r=2.0.2_RELEASE postgresql-jdbc=9.4.1210 spring-boot-cli=1.4.0_RELEASE","start_command":"CALCULATED_MEMORY=$($PWD/.java-buildpack/open_jdk_jre/bin/java-buildpack-memory
+-calculator-2.0.2_RELEASE -memorySizes=metaspace:64m..,stack:228k.. -memoryWeights=heap:65,metaspace:10,native:15,stack:10 -memoryInitials=heap:100%,metaspace:100% -sta
+ckThreads=300 -totMemory=$MEMORY_LIMIT) \u0026\u0026 SERVER_PORT=$PORT JAVA_HOME=$PWD/.java-buildpack/open_jdk_jre JAVA_OPTS=\"-Djava.io.tmpdir=$TMPDIR -XX:OnOutOfMemor
+yError=$PWD/.java-buildpack/open_jdk_jre/bin/killjava.sh $CALCULATED_MEMORY\" exec $PWD/.java-buildpack/spring_boot_cli/bin/spring run -cp $PWD/.java-buildpack/postgres
+ql_jdbc/postgresql_jdbc-9.4.1210.jar app.groovy"}
+vcap@48d0ba5d-d31c-468c-521e-f523d16f998f:~$
+vcap@48d0ba5d-d31c-468c-521e-f523d16f998f:~$
+vcap@48d0ba5d-d31c-468c-521e-f523d16f998f:~$ uname -a
+Linux 48d0ba5d-d31c-468c-521e-f523d16f998f 3.19.0-64-generic #72~14.04.1-Ubuntu SMP Fri Jun 24 17:59:48 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
+vcap@48d0ba5d-d31c-468c-521e-f523d16f998f:~$ who am i
+vcap@48d0ba5d-d31c-468c-521e-f523d16f998f:~$ who
+vcap@48d0ba5d-d31c-468c-521e-f523d16f998f:~$ ls
+app  logs  staging_info.yml  tmp
+vcap@48d0ba5d-d31c-468c-521e-f523d16f998f:~$ ps -ef
+UID        PID  PPID  C STIME TTY          TIME CMD
+root         1     0  0 Sep19 ?        00:00:00 /var/vcap/packages/runc/bin/runc init
+vcap        14     0  0 Sep19 ?        00:00:00 /tmp/lifecycle/diego-sshd --allowedKeyExchanges= --address=0.0.0.0:2222 --allowUnauthenticatedClients=false --inheritDae
+vcap        20     0  0 Sep19 ?        00:00:00 bash /home/vcap/app/.java-buildpack/spring_boot_cli/bin/spring run -cp /home/vcap/app/.java-buildpack/postgresql_jdbc/po
+vcap        49    20  0 Sep19 ?        00:02:05 /home/vcap/app/.java-buildpack/open_jdk_jre/bin/java -Djava.io.tmpdir=/home/vcap/tmp -XX:OnOutOfMemoryError=/home/vcap/a
+vcap     11649    14  0 10:42 pts/0    00:00:00 /bin/bash
+vcap     11723 11649  0 10:44 pts/0    00:00:00 ps -ef
+vcap@48d0ba5d-d31c-468c-521e-f523d16f998f:~$ cd app
+vcap@48d0ba5d-d31c-468c-521e-f523d16f998f:~/app$ ls -a
+.  ..  app.groovy  application.properties  .java-buildpack  public  README.md  templates
+vcap@48d0ba5d-d31c-468c-521e-f523d16f998f:~/app$ cd FAILED
+Error: wait: remote command exited without exit status or exit signal
+
+D:\Kishan\Workspaces\PCF-Workspace>cf marketplace
+Getting services from marketplace in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+OK
+
+service          plans                                                                                description
+3scale           free_appdirect, basic_appdirect*                                                     API Management Platform
+app-autoscaler   bronze, gold                                                                         Scales bound applications in response to load (beta)
+blazemeter       free-tier, basic1kmr*, pro5kmr*                                                      Performance Testing Platform
+cedexisopenmix   opx_global*, openmix-gslb-with-fusion-feeds*                                         Openmix Global Cloud and Data Center Load Balancer
+cedexisradar     free-community-edition                                                               Free Website and Mobile App Performance Reports
+cleardb          spark, boost*, amp*, shock*                                                          Highly available MySQL for your Apps.
+cloudamqp        lemur, tiger*, bunny*, rabbit*, panda*                                               Managed HA RabbitMQ servers in the cloud
+cloudforge       free, standard*, pro*                                                                Development Tools In The Cloud
+elephantsql      turtle, panda*, hippo*, elephant*                                                    PostgreSQL as a Service
+flashreport      trial, basic*, silver*, gold*, platinum*                                             Generate PDF from your data
+ironworker       production*, starter*, developer*, lite                                              Job Scheduling and Processing
+loadimpact       lifree, li100*, li500*, li1000*                                                      Performance testing for DevOps
+memcachedcloud   100mb*, 250mb*, 500mb*, 1gb*, 2-5gb*, 5gb*, 30mb                                     Enterprise-Class Memcached for Developers
+memcachier       dev, 100*, 250*, 500*, 1000*, 2000*, 5000*, 7500*, 10000*, 20000*, 50000*, 100000*   The easiest, most advanced memcache.
+mlab             sandbox                                                                              Fully managed MongoDB-as-a-Service
+newrelic         standard                                                                             Manage and monitor your apps
+pubnub           free                                                                                 Build Realtime Apps that Scale
+rediscloud       100mb*, 250mb*, 500mb*, 1gb*, 2-5gb*, 5gb*, 10gb*, 50gb*, 30mb                       Enterprise-Class Redis for Developers
+searchify        small*, plus*, pro*                                                                  Custom search you control
+searchly         small*, micro*, professional*, advanced*, starter, business*, enterprise*            Search Made Simple. Powered-by Elasticsearch
+sendgrid         free, bronze*, silver*                                                               Email Delivery. Simplified.
+ssl              basic*                                                                               Upload your SSL certificate for your app(s) on your custom domain
+stamplay         plus*, premium*, core, starter*                                                      API-first development platform
+statica          starter, spike*, micro*, medium*, large*, enterprise*, premium*                      Enterprise Static IP Addresses
+temporize        small*, medium*, large*                                                              Simple and flexible job scheduling for your application
+
+* These service plans have an associated cost. Creating a service instance will incur this cost.
+
+TIP:  Use 'cf marketplace -s SERVICE' to view descriptions of individual plans of a given service.
+
+D:\Kishan\Workspaces\PCF-Workspace>cf
+NAME:
+   cf - A command line tool to interact with Cloud Foundry
+
+USAGE:
+   cf [global options] command [arguments...] [command options]
+
+VERSION:
+   6.21.1+6fd3c9f-2016-08-10
+
+GETTING STARTED:
+   help                                   Show help
+   version                                Print the version
+   login                                  Log user in
+   logout                                 Log user out
+   passwd                                 Change user password
+   target                                 Set or view the targeted org or space
+
+   api                                    Set or view target api url
+   auth                                   Authenticate user non-interactively
+
+APPS:
+   apps                                   List all apps in the target space
+   app                                    Display health and status for app
+
+   push                                   Push a new app or sync changes to an existing app
+   scale                                  Change or view the instance count, disk space limit, and memory limit for an app
+   delete                                 Delete an app
+   rename                                 Rename an app
+
+   start                                  Start an app
+   stop                                   Stop an app
+   restart                                Restart an app
+   restage                                Restage an app
+   restart-app-instance                   Terminate the running application Instance at the given index and instantiate a new instance of the application with the same
+index
+
+   events                                 Show recent app events
+   files                                  Print out a list of files in a directory or the contents of a specific file of an app running on the DEA backend
+   logs                                   Tail or show recent logs for an app
+
+   env                                    Show all env variables for an app
+   set-env                                Set an env variable for an app
+   unset-env                              Remove an env variable
+
+   stacks                                 List all stacks (a stack is a pre-built file system, including an operating system, that can run apps)
+   stack                                  Show information for a stack (a stack is a pre-built file system, including an operating system, that can run apps)
+
+   copy-source                            Copies the source code of an application to another existing application (and restarts that application)
+
+   create-app-manifest                    Create an app manifest for an app that has been pushed successfully
+
+   get-health-check                       Get the health_check_type value of an app
+   set-health-check                       Set health_check_type flag to either 'port' or 'none'
+   enable-ssh                             Enable ssh for the application
+   disable-ssh                            Disable ssh for the application
+   ssh-enabled                            Reports whether SSH is enabled on an application container instance
+   ssh                                    SSH to an application container instance
+
+SERVICES:
+   marketplace                            List available offerings in the marketplace
+   services                               List all service instances in the target space
+   service                                Show service instance info
+
+   create-service                         Create a service instance
+   update-service                         Update a service instance
+   delete-service                         Delete a service instance
+   rename-service                         Rename a service instance
+
+   create-service-key                     Create key for a service instance
+   service-keys                           List keys for a service instance
+   service-key                            Show service key info
+   delete-service-key                     Delete a service key
+
+   bind-service                           Bind a service instance to an app
+   unbind-service                         Unbind a service instance from an app
+
+   bind-route-service                     Bind a service instance to an HTTP route
+   unbind-route-service                   Unbind a service instance from an HTTP route
+
+   create-user-provided-service           Make a user-provided service instance available to CF apps
+   update-user-provided-service           Update user-provided service instance
+
+ORGS:
+   orgs                                   List all orgs
+   org                                    Show org info
+
+   create-org                             Create an org
+   delete-org                             Delete an org
+   rename-org                             Rename an org
+
+SPACES:
+   spaces                                 List all spaces in an org
+   space                                  Show space info
+
+   create-space                           Create a space
+   delete-space                           Delete a space
+   rename-space                           Rename a space
+
+   allow-space-ssh                        Allow SSH access for the space
+   disallow-space-ssh                     Disallow SSH access for the space
+   space-ssh-allowed                      Reports whether SSH is allowed in a space
+
+DOMAINS:
+   domains                                List domains in the target org
+   create-domain                          Create a domain in an org for later use
+   delete-domain                          Delete a domain
+   create-shared-domain                   Create a domain that can be used by all orgs (admin-only)
+   delete-shared-domain                   Delete a shared domain
+
+   router-groups                          List router groups
+
+ROUTES:
+   routes                                 List all routes in the current space or the current organization
+   create-route                           Create a url route in a space for later use
+   check-route                            Perform a simple check to determine whether a route currently exists or not
+   map-route                              Add a url route to an app
+   unmap-route                            Remove a url route from an app
+   delete-route                           Delete a route
+   delete-orphaned-routes                 Delete all orphaned routes (i.e. those that are not mapped to an app)
+
+BUILDPACKS:
+   buildpacks                             List all buildpacks
+   create-buildpack                       Create a buildpack
+   update-buildpack                       Update a buildpack
+   rename-buildpack                       Rename a buildpack
+   delete-buildpack                       Delete a buildpack
+
+USER ADMIN:
+   create-user                            Create a new user
+   delete-user                            Delete a user
+
+   org-users                              Show org users by role
+   set-org-role                           Assign an org role to a user
+   unset-org-role                         Remove an org role from a user
+
+   space-users                            Show space users by role
+   set-space-role                         Assign a space role to a user
+   unset-space-role                       Remove a space role from a user
+
+ORG ADMIN:
+   quotas                                 List available usage quotas
+   quota                                  Show quota info
+   set-quota                              Assign a quota to an org
+
+   create-quota                           Define a new resource quota
+   delete-quota                           Delete a quota
+   update-quota                           Update an existing resource quota
+
+   share-private-domain                   Share a private domain with an org
+   unshare-private-domain                 Unshare a private domain with an org
+
+SPACE ADMIN:
+   space-quotas                           List available space resource quotas
+   space-quota                            Show space quota info
+   create-space-quota                     Define a new space resource quota
+   update-space-quota                     Update an existing space quota
+   delete-space-quota                     Delete a space quota definition and unassign the space quota from all spaces
+   set-space-quota                        Assign a space quota definition to a space
+   unset-space-quota                      Unassign a quota from a space
+
+SERVICE ADMIN:
+   service-auth-tokens                    List service auth tokens
+   create-service-auth-token              Create a service auth token
+   update-service-auth-token              Update a service auth token
+   delete-service-auth-token              Delete a service auth token
+
+   service-brokers                        List service brokers
+   create-service-broker                  Create a service broker
+   update-service-broker                  Update a service broker
+   delete-service-broker                  Delete a service broker
+   rename-service-broker                  Rename a service broker
+
+   migrate-service-instances              Migrate service instances from one service plan to another
+   purge-service-offering                 Recursively remove a service and child objects from Cloud Foundry database without making requests to a service broker
+   purge-service-instance                 Recursively remove a service instance and child objects from Cloud Foundry database without making requests to a service broke
+r
+
+   service-access                         List service access settings
+   enable-service-access                  Enable access to a service or service plan for one or all orgs
+   disable-service-access                 Disable access to a service or service plan for one or all orgs
+
+SECURITY GROUP:
+   security-group                         Show a single security group
+   security-groups                        List all security groups
+   create-security-group                  Create a security group
+   update-security-group                  Update a security group
+   delete-security-group                  Deletes a security group
+   bind-security-group                    Bind a security group to a particular space, or all existing spaces of an org
+   unbind-security-group                  Unbind a security group from a space
+
+   bind-staging-security-group            Bind a security group to the list of security groups to be used for staging applications
+   staging-security-groups                List security groups in the staging set for applications
+   unbind-staging-security-group          Unbind a security group from the set of security groups for staging applications
+
+   bind-running-security-group            Bind a security group to the list of security groups to be used for running applications
+   running-security-groups                List security groups in the set of security groups for running applications
+   unbind-running-security-group          Unbind a security group from the set of security groups for running applications
+
+ENVIRONMENT VARIABLE GROUPS:
+   running-environment-variable-group     Retrieve the contents of the running environment variable group
+   staging-environment-variable-group     Retrieve the contents of the staging environment variable group
+   set-staging-environment-variable-group Pass parameters as JSON to create a staging environment variable group
+   set-running-environment-variable-group Pass parameters as JSON to create a running environment variable group
+
+FEATURE FLAGS:
+   feature-flags                          Retrieve list of feature flags with status of each flag-able feature
+   feature-flag                           Retrieve an individual feature flag with status
+   enable-feature-flag                    Enable the use of a feature so that users have access to and can use the feature
+   disable-feature-flag                   Disable the use of a feature so that users have access to and can use the feature
+
+ADVANCED:
+   curl                                   Executes a request to the targeted API endpoint
+   config                                 Write default values to the config
+   oauth-token                            Retrieve and display the OAuth token for the current session
+   ssh-code                               Get a one time password for ssh clients
+
+ADD/REMOVE PLUGIN REPOSITORY:
+   add-plugin-repo                        Add a new plugin repository
+   remove-plugin-repo                     Remove a plugin repository
+   list-plugin-repos                      List all the added plugin repositories
+   repo-plugins                           List all available plugins in specified repository or in all added repositories
+
+ADD/REMOVE PLUGIN:
+   plugins                                List all available plugin commands
+   install-plugin                         Install CLI plugin
+   uninstall-plugin                       Uninstall the plugin defined in command argument
+
+INSTALLED PLUGIN COMMANDS:
+
+ENVIRONMENT VARIABLES:
+   CF_COLOR=false                     Do not colorize output
+   CF_HOME=path/to/dir/               Override path to default config directory
+   CF_DIAL_TIMEOUT=5                  Max wait time to establish a connection, including name resolution, in seconds
+   CF_PLUGIN_HOME=path/to/dir/        Override path to default plugin config directory
+   CF_STAGING_TIMEOUT=15              Max wait time for buildpack staging, in minutes
+   CF_STARTUP_TIMEOUT=5               Max wait time for app instance startup, in minutes
+   CF_TRACE=true                      Print API request diagnostics to stdout
+   CF_TRACE=path/to/trace.log         Append API request diagnostics to a log file
+   https_proxy=proxy.example.com:8080 Enable HTTP proxying for API requests
+
+GLOBAL OPTIONS:
+   --help, -h                         Show help
+   -v                                 Print API request diagnostics to stdout
+
+D:\Kishan\Workspaces\PCF-Workspace>cf apps
+Getting apps in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+OK
+
+name        requested state   instances   memory   disk   urls
+cf-spring   started           1/1         512M     1G     cf-spring-subvertebral-stoplight.cfapps.io
+
+D:\Kishan\Workspaces\PCF-Workspace>cf cf-spring
+'cf-spring' is not a registered command. See 'cf help'
+
+D:\Kishan\Workspaces\PCF-Workspace>cf env cf-spring
+Getting env variables for app cf-spring in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+OK
+
+System-Provided:
+{
+ "VCAP_SERVICES": {
+  "elephantsql": [
+   {
+    "credentials": {
+     "max_conns": "5",
+     "uri": "postgres://pauinxaf:U-xW4jUBr3K_c_8RtRIcLpBIfIz97ZGd@elmer-01.db.elephantsql.com:5432/pauinxaf"
+    },
+    "label": "elephantsql",
+    "name": "cf-spring-db",
+    "plan": "turtle",
+    "provider": null,
+    "syslog_drain_url": null,
+    "tags": [
+     "Data Stores",
+     "Web-based",
+     "Open Source",
+     "User Provisioning",
+     "PaaS",
+     "Single Sign-On",
+     "Windows",
+     "New Product",
+     "Mac",
+     "Android",
+     "Certified Applications",
+     "Developer Tools",
+     "Data Store",
+     "postgresql",
+     "Buyable",
+     "relational",
+     "Importable",
+     "IT Management"
+    ],
+    "volume_mounts": []
+   }
+  ]
+ }
+}
+
+{
+ "VCAP_APPLICATION": {
+  "application_id": "7416259d-2763-49e2-a71a-43e417396edf",
+  "application_name": "cf-spring",
+  "application_uris": [
+   "cf-spring-subvertebral-stoplight.cfapps.io"
+  ],
+  "application_version": "c31a6885-3726-42e7-b8bb-2fd49310b7b7",
+  "limits": {
+   "disk": 1024,
+   "fds": 16384,
+   "mem": 512
+  },
+  "name": "cf-spring",
+  "space_id": "8f70aec9-0b11-45e1-a416-a68ff0960141",
+  "space_name": "development",
+  "uris": [
+   "cf-spring-subvertebral-stoplight.cfapps.io"
+  ],
+  "users": null,
+  "version": "c31a6885-3726-42e7-b8bb-2fd49310b7b7"
+ }
+}
+
+No user-defined env variables have been set
+
+No running env variables have been set
+
+No staging env variables have been set
+
+
+D:\Kishan\Workspaces\PCF-Workspace>cf services
+Getting services in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+OK
+
+name           service       plan     bound apps   last operation
+cf-spring-db   elephantsql   turtle   cf-spring    create succeeded
+
+D:\Kishan\Workspaces\PCF-Workspace>cf feature-flags
+Retrieving status of all flagged features as kishansharma.narayanan@cognizant.com...
+OK
+
+Features                               State
+user_org_creation                      disabled
+private_domain_creation                enabled
+app_bits_upload                        enabled
+app_scaling                            enabled
+route_creation                         enabled
+service_instance_creation              enabled
+diego_docker                           disabled
+set_roles_by_username                  enabled
+unset_roles_by_username                enabled
+task_creation                          enabled
+env_var_visibility                     enabled
+space_scoped_private_broker_creation   enabled
+space_developer_env_var_visibility     enabled
+
+D:\Kishan\Workspaces\PCF-Workspace>cf ssh
+FAILED
+Incorrect Usage. Requires APP_NAME as argument
+
+NAME:
+   ssh - SSH to an application container instance
+
+USAGE:
+   cf ssh APP_NAME [-i app-instance-index] [-c command] [-L [bind_address:]port:host:hostport] [--skip-host-validation] [--skip-remote-execution] [--request-pseudo-tty]
+ [--force-pseudo-tty] [--disable-pseudo-tty]
+
+OPTIONS:
+   -L                               Local port forward specification. This flag can be defined more than once.
+   --app-instance-index, -i         Application instance index
+   --command, -c                    Command to run. This flag can be defined more than once.
+   --disable-pseudo-tty, -T         Disable pseudo-tty allocation
+   --force-pseudo-tty, -tt          Force pseudo-tty allocation
+   --request-pseudo-tty, -t         Request pseudo-tty allocation
+   --skip-host-validation, -k       Skip host key validation
+   --skip-remote-execution, -N      Do not execute a remote command
+
+D:\Kishan\Workspaces\PCF-Workspace>cf apps
+Getting apps in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+OK
+
+name               requested state   instances   memory   disk   urls
+cf-spring          started           1/1         512M     1G     cf-spring-subvertebral-stoplight.cfapps.io
+SampleSpringRest   started           1/1         256M     512M   SampleSpringRest.cfapps.io
+
+D:\Kishan\Workspaces\PCF-Workspace>cf ssh SampleSpringRest
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~$
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~$
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~$ ls
+app  logs  staging_info.yml  tmp
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~$ ls -a
+.  ..  app  .bash_logout  .bashrc  logs  .profile  staging_info.yml  tmp
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~$ cd app
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app$ ls
+index.jsp  META-INF  WEB-INF
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app$ ls -a
+.  ..  index.jsp  .java-buildpack  META-INF  WEB-INF
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app$ cd .java-buildpack/
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack$ ls
+open_jdk_jre  spring_auto_reconfiguration  tomcat
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack$ cd tomcat
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat$ ls
+bin  conf  endorsed  lib  LICENSE  logs  NOTICE  RELEASE-NOTES  RUNNING.txt  temp  webapps  work
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat$ cd webapps/
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps$ ls
+ROOT
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps$ cd *
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT$ ls
+index.jsp  META-INF  WEB-INF
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT$ cd^C
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT$ ps
+  PID TTY          TIME CMD
+  509 pts/0    00:00:00 bash
+  546 pts/0    00:00:00 ps
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT$ ps
+  PID TTY          TIME CMD
+  509 pts/0    00:00:00 bash
+  547 pts/0    00:00:00 ps
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT$ ps -ef
+UID        PID  PPID  C STIME TTY          TIME CMD
+root         1     0  0 08:41 ?        00:00:00 /var/vcap/packages/runc/bin/runc init
+vcap        14     0  0 08:42 ?        00:00:00 /tmp/lifecycle/diego-sshd --allowedKeyExchanges= --address=0.0.0.0:2222 --allowUnauthenticatedClients=false --inheritDae
+vcap        20     0  1 08:42 ?        00:00:13 /home/vcap/app/.java-buildpack/open_jdk_jre/bin/java -Djava.util.logging.config.file=/home/vcap/app/.java-buildpack/tomc
+vcap       509    14  0 09:03 pts/0    00:00:00 /bin/bash
+vcap       548   509  0 09:04 pts/0    00:00:00 ps -ef
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT$ cd ..
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps$ ls
+ROOT
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps$ ls -a
+.  ..  ROOT
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps$ cd ROOT/
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT$ ls
+index.jsp  META-INF  WEB-INF
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT$ ls -a
+.  ..  index.jsp  META-INF  WEB-INF
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT$ cat index.jsp
+<html>
+<body>
+<h2>Hello World!</h2>
+</body>
+</html>
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT$ cd META-INF
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/META-INF$ ls
+MANIFEST.MF  maven
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/META-INF$ cat MANIFEST.MF
+Manifest-Version: 1.0
+Built-By: 591241
+Build-Jdk: 1.8.0_91
+Created-By: Maven Integration for Eclipse
+
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/META-INF$ cd maven
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/META-INF/maven$ ls
+com.test.kishan
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/META-INF/maven$ cd *
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/META-INF/maven/com.test.kishan$ ls
+SampleSpringRest
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/META-INF/maven/com.test.kishan$ cd *
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/META-INF/maven/com.test.kishan/SampleSpringRest$ ls
+pom.properties  pom.xml
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/META-INF/maven/com.test.kishan/SampleSpringRest$ cd ../../../..
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT$ cd WEB-INF
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/WEB-INF$ ls
+classes  lib  spring  views  web.xml
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/WEB-INF$ cat web.xml
+<?xml version='1.0' encoding='UTF-8'?>
+<web-app xmlns='http://java.sun.com/xml/ns/j2ee' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://java.sun.com/xml/ns/j2ee http://java.s
+un.com/xml/ns/j2ee/web-app_2_4.xsd' version='2.4'>
+    <display-name>Archetype Created Web Application</display-name>
+    <!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/spring/root-context.xml</param-value>
+    </context-param>
+    <!-- Creates the Spring Container shared by all Servlets and Filters -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <!-- Processes application requests -->
+    <servlet>
+        <servlet-name>appServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
+        </init-param>
+        <init-param>
+            <param-name>contextInitializerClasses</param-name>
+            <param-value>
+                org.cloudfoundry.reconfiguration.spring.CloudProfileApplicationContextInitializer,org.cloudfoundry.reconfiguration.spring.CloudPropertySourceApplication
+ContextInitializer,org.cloudfoundry.reconfiguration.spring.CloudAutoReconfigurationApplicationContextInitializer
+            </param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>appServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    <context-param>
+        <param-name>contextInitializerClasses</param-name>
+        <param-value>
+            org.cloudfoundry.reconfiguration.spring.CloudProfileApplicationContextInitializer,org.cloudfoundry.reconfiguration.spring.CloudPropertySourceApplicationCont
+extInitializer,org.cloudfoundry.reconfiguration.spring.CloudAutoReconfigurationApplicationContextInitializer
+        </param-value>
+    </context-param>
+</web-app>
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/WEB-INF$ cd spring
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/WEB-INF/spring$ ls
+appServlet  root-context.xml
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/WEB-INF/spring$ cd ..
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/WEB-INF$ ls
+classes  lib  spring  views  web.xml
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/WEB-INF$ cd classes
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/WEB-INF/classes$ ls
+com
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/WEB-INF/classes$ cd *
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/WEB-INF/classes/com$ ls
+kishan
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/WEB-INF/classes/com$ cd *
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/WEB-INF/classes/com/kishan$ ls
+test
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/WEB-INF/classes/com/kishan$ cd *
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/WEB-INF/classes/com/kishan/test$ ls
+Greeting.class  HomeController.class  RestSpringController.class
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/WEB-INF/classes/com/kishan/test$ cd ../../../../
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/WEB-INF$ ls
+classes  lib  spring  views  web.xml
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/WEB-INF$ cd views
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/WEB-INF/views$ ls
+home.jsp
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/WEB-INF/views$ cd ..
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/WEB-INF$ cd spring/
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/WEB-INF/spring$ ls
+appServlet  root-context.xml
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/WEB-INF/spring$ cat root-context.xml
+<?xml vexmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xxsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        <!-- Root Context: defines shared resources visible to all other web components -->
+
+</beans>
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/WEB-INF/spring$ cd appServlet/
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/WEB-INF/spring/appServlet$ ls
+servlet-context.xml
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/WEB-INF/spring/appServlet$ cat servlet-context.xml
+<?xml vexmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans:bxmlns:beans="http://www.springframework.org/schema/beans"
+        xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+                http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+        <!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+        <!-- Enables the Spring MVC @Controller programming model -->
+        <!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+        <resources mapping="/resources/**" location="/resources/" />
+        <!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+        <beans:b<!-- <beans:property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>-->
+                <beans:property name="suffix" value=".jsp" />/views/" />
+        </beans:bean>
+        <context:component-scan base-package="com.kishan.test" />
+
+</beans:beans>
+vcap@18047884-04a2-46d4-72ef-5a4f57aef3cb:~/app/.java-buildpack/tomcat/webapps/ROOT/WEB-INF/spring/appServlet$ exit
+exit
+
+D:\Kishan\Workspaces\PCF-Workspace>cf create-service
+FAILED
+Incorrect Usage. Requires service, service plan, service instance as arguments
+
+NAME:
+   create-service - Create a service instance
+
+USAGE:
+   cf create-service SERVICE PLAN SERVICE_INSTANCE [-c PARAMETERS_AS_JSON] [-t TAGS]
+
+   Optionally provide service-specific configuration parameters in a valid JSON object in-line:
+
+   cf create-service SERVICE PLAN SERVICE_INSTANCE -c '{"name":"value","name":"value"}'
+
+   Optionally provide a file containing service-specific configuration parameters in a valid JSON object.
+   The path to the parameters file can be an absolute or relative path to a file:
+
+   cf create-service SERVICE PLAN SERVICE_INSTANCE -c PATH_TO_FILE
+
+   Example of valid JSON object:
+   {
+      "cluster_nodes": {
+         "count": 5,
+         "memory_mb": 1024
+      }
+   }
+
+TIP:
+   Use 'cf create-user-provided-service' to make user-provided services available to CF apps
+
+EXAMPLES:
+   Linux/Mac:
+      cf create-service db-service silver mydb -c '{"ram_gb":4}'
+
+   Windows Command Line:
+      cf create-service db-service silver mydb -c "{\"ram_gb\":4}"
+
+   Windows PowerShell:
+      cf create-service db-service silver mydb -c '{\"ram_gb\":4}'
+
+   cf create-service db-service silver mydb -c ~/workspace/tmp/instance_config.json
+
+   cf create-service db-service silver mydb -t "list, of, tags"
+
+ALIAS:
+   cs
+
+OPTIONS:
+   -c      Valid JSON object containing service-specific configuration parameters, provided either in-line or in a file. For a list of supported configuration parameter
+s, see documentation for the particular service offering.
+   -t      User provided tags
+
+D:\Kishan\Workspaces\PCF-Workspace>cf list services
+'list' is not a registered command. See 'cf help'
+
+D:\Kishan\Workspaces\PCF-Workspace>cf
+NAME:
+   cf - A command line tool to interact with Cloud Foundry
+
+USAGE:
+   cf [global options] command [arguments...] [command options]
+
+VERSION:
+   6.21.1+6fd3c9f-2016-08-10
+
+GETTING STARTED:
+   help                                   Show help
+   version                                Print the version
+   login                                  Log user in
+   logout                                 Log user out
+   passwd                                 Change user password
+   target                                 Set or view the targeted org or space
+
+   api                                    Set or view target api url
+   auth                                   Authenticate user non-interactively
+
+APPS:
+   apps                                   List all apps in the target space
+   app                                    Display health and status for app
+
+   push                                   Push a new app or sync changes to an existing app
+   scale                                  Change or view the instance count, disk space limit, and memory limit for an app
+   delete                                 Delete an app
+   rename                                 Rename an app
+
+   start                                  Start an app
+   stop                                   Stop an app
+   restart                                Restart an app
+   restage                                Restage an app
+   restart-app-instance                   Terminate the running application Instance at the given index and instantiate a new instance of the application with the same
+index
+
+   events                                 Show recent app events
+   files                                  Print out a list of files in a directory or the contents of a specific file of an app running on the DEA backend
+   logs                                   Tail or show recent logs for an app
+
+   env                                    Show all env variables for an app
+   set-env                                Set an env variable for an app
+   unset-env                              Remove an env variable
+
+   stacks                                 List all stacks (a stack is a pre-built file system, including an operating system, that can run apps)
+   stack                                  Show information for a stack (a stack is a pre-built file system, including an operating system, that can run apps)
+
+   copy-source                            Copies the source code of an application to another existing application (and restarts that application)
+
+   create-app-manifest                    Create an app manifest for an app that has been pushed successfully
+
+   get-health-check                       Get the health_check_type value of an app
+   set-health-check                       Set health_check_type flag to either 'port' or 'none'
+   enable-ssh                             Enable ssh for the application
+   disable-ssh                            Disable ssh for the application
+   ssh-enabled                            Reports whether SSH is enabled on an application container instance
+   ssh                                    SSH to an application container instance
+
+SERVICES:
+   marketplace                            List available offerings in the marketplace
+   services                               List all service instances in the target space
+   service                                Show service instance info
+
+   create-service                         Create a service instance
+   update-service                         Update a service instance
+   delete-service                         Delete a service instance
+   rename-service                         Rename a service instance
+
+   create-service-key                     Create key for a service instance
+   service-keys                           List keys for a service instance
+   service-key                            Show service key info
+   delete-service-key                     Delete a service key
+
+   bind-service                           Bind a service instance to an app
+   unbind-service                         Unbind a service instance from an app
+
+   bind-route-service                     Bind a service instance to an HTTP route
+   unbind-route-service                   Unbind a service instance from an HTTP route
+
+   create-user-provided-service           Make a user-provided service instance available to CF apps
+   update-user-provided-service           Update user-provided service instance
+
+ORGS:
+   orgs                                   List all orgs
+   org                                    Show org info
+
+   create-org                             Create an org
+   delete-org                             Delete an org
+   rename-org                             Rename an org
+
+SPACES:
+   spaces                                 List all spaces in an org
+   space                                  Show space info
+
+   create-space                           Create a space
+   delete-space                           Delete a space
+   rename-space                           Rename a space
+
+   allow-space-ssh                        Allow SSH access for the space
+   disallow-space-ssh                     Disallow SSH access for the space
+   space-ssh-allowed                      Reports whether SSH is allowed in a space
+
+DOMAINS:
+   domains                                List domains in the target org
+   create-domain                          Create a domain in an org for later use
+   delete-domain                          Delete a domain
+   create-shared-domain                   Create a domain that can be used by all orgs (admin-only)
+   delete-shared-domain                   Delete a shared domain
+
+   router-groups                          List router groups
+
+ROUTES:
+   routes                                 List all routes in the current space or the current organization
+   create-route                           Create a url route in a space for later use
+   check-route                            Perform a simple check to determine whether a route currently exists or not
+   map-route                              Add a url route to an app
+   unmap-route                            Remove a url route from an app
+   delete-route                           Delete a route
+   delete-orphaned-routes                 Delete all orphaned routes (i.e. those that are not mapped to an app)
+
+BUILDPACKS:
+   buildpacks                             List all buildpacks
+   create-buildpack                       Create a buildpack
+   update-buildpack                       Update a buildpack
+   rename-buildpack                       Rename a buildpack
+   delete-buildpack                       Delete a buildpack
+
+USER ADMIN:
+   create-user                            Create a new user
+   delete-user                            Delete a user
+
+   org-users                              Show org users by role
+   set-org-role                           Assign an org role to a user
+   unset-org-role                         Remove an org role from a user
+
+   space-users                            Show space users by role
+   set-space-role                         Assign a space role to a user
+   unset-space-role                       Remove a space role from a user
+
+ORG ADMIN:
+   quotas                                 List available usage quotas
+   quota                                  Show quota info
+   set-quota                              Assign a quota to an org
+
+   create-quota                           Define a new resource quota
+   delete-quota                           Delete a quota
+   update-quota                           Update an existing resource quota
+
+   share-private-domain                   Share a private domain with an org
+   unshare-private-domain                 Unshare a private domain with an org
+
+SPACE ADMIN:
+   space-quotas                           List available space resource quotas
+   space-quota                            Show space quota info
+   create-space-quota                     Define a new space resource quota
+   update-space-quota                     Update an existing space quota
+   delete-space-quota                     Delete a space quota definition and unassign the space quota from all spaces
+   set-space-quota                        Assign a space quota definition to a space
+   unset-space-quota                      Unassign a quota from a space
+
+SERVICE ADMIN:
+   service-auth-tokens                    List service auth tokens
+   create-service-auth-token              Create a service auth token
+   update-service-auth-token              Update a service auth token
+   delete-service-auth-token              Delete a service auth token
+
+   service-brokers                        List service brokers
+   create-service-broker                  Create a service broker
+   update-service-broker                  Update a service broker
+   delete-service-broker                  Delete a service broker
+   rename-service-broker                  Rename a service broker
+
+   migrate-service-instances              Migrate service instances from one service plan to another
+   purge-service-offering                 Recursively remove a service and child objects from Cloud Foundry database without making requests to a service broker
+   purge-service-instance                 Recursively remove a service instance and child objects from Cloud Foundry database without making requests to a service broke
+r
+
+   service-access                         List service access settings
+   enable-service-access                  Enable access to a service or service plan for one or all orgs
+   disable-service-access                 Disable access to a service or service plan for one or all orgs
+
+SECURITY GROUP:
+   security-group                         Show a single security group
+   security-groups                        List all security groups
+   create-security-group                  Create a security group
+   update-security-group                  Update a security group
+   delete-security-group                  Deletes a security group
+   bind-security-group                    Bind a security group to a particular space, or all existing spaces of an org
+   unbind-security-group                  Unbind a security group from a space
+
+   bind-staging-security-group            Bind a security group to the list of security groups to be used for staging applications
+   staging-security-groups                List security groups in the staging set for applications
+   unbind-staging-security-group          Unbind a security group from the set of security groups for staging applications
+
+   bind-running-security-group            Bind a security group to the list of security groups to be used for running applications
+   running-security-groups                List security groups in the set of security groups for running applications
+   unbind-running-security-group          Unbind a security group from the set of security groups for running applications
+
+ENVIRONMENT VARIABLE GROUPS:
+   running-environment-variable-group     Retrieve the contents of the running environment variable group
+   staging-environment-variable-group     Retrieve the contents of the staging environment variable group
+   set-staging-environment-variable-group Pass parameters as JSON to create a staging environment variable group
+   set-running-environment-variable-group Pass parameters as JSON to create a running environment variable group
+
+FEATURE FLAGS:
+   feature-flags                          Retrieve list of feature flags with status of each flag-able feature
+   feature-flag                           Retrieve an individual feature flag with status
+   enable-feature-flag                    Enable the use of a feature so that users have access to and can use the feature
+   disable-feature-flag                   Disable the use of a feature so that users have access to and can use the feature
+
+ADVANCED:
+   curl                                   Executes a request to the targeted API endpoint
+   config                                 Write default values to the config
+   oauth-token                            Retrieve and display the OAuth token for the current session
+   ssh-code                               Get a one time password for ssh clients
+
+ADD/REMOVE PLUGIN REPOSITORY:
+   add-plugin-repo                        Add a new plugin repository
+   remove-plugin-repo                     Remove a plugin repository
+   list-plugin-repos                      List all the added plugin repositories
+   repo-plugins                           List all available plugins in specified repository or in all added repositories
+
+ADD/REMOVE PLUGIN:
+   plugins                                List all available plugin commands
+   install-plugin                         Install CLI plugin
+   uninstall-plugin                       Uninstall the plugin defined in command argument
+
+INSTALLED PLUGIN COMMANDS:
+
+ENVIRONMENT VARIABLES:
+   CF_COLOR=false                     Do not colorize output
+   CF_HOME=path/to/dir/               Override path to default config directory
+   CF_DIAL_TIMEOUT=5                  Max wait time to establish a connection, including name resolution, in seconds
+   CF_PLUGIN_HOME=path/to/dir/        Override path to default plugin config directory
+   CF_STAGING_TIMEOUT=15              Max wait time for buildpack staging, in minutes
+   CF_STARTUP_TIMEOUT=5               Max wait time for app instance startup, in minutes
+   CF_TRACE=true                      Print API request diagnostics to stdout
+   CF_TRACE=path/to/trace.log         Append API request diagnostics to a log file
+   https_proxy=proxy.example.com:8080 Enable HTTP proxying for API requests
+
+GLOBAL OPTIONS:
+   --help, -h                         Show help
+   -v                                 Print API request diagnostics to stdout
+
+D:\Kishan\Workspaces\PCF-Workspace>cf marketplace
+Getting services from marketplace in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+OK
+
+service          plans                                                                                description
+3scale           free_appdirect, basic_appdirect*                                                     API Management Platform
+app-autoscaler   bronze, gold                                                                         Scales bound applications in response to load (beta)
+blazemeter       free-tier, basic1kmr*, pro5kmr*                                                      Performance Testing Platform
+cedexisopenmix   opx_global*, openmix-gslb-with-fusion-feeds*                                         Openmix Global Cloud and Data Center Load Balancer
+cedexisradar     free-community-edition                                                               Free Website and Mobile App Performance Reports
+cleardb          spark, boost*, amp*, shock*                                                          Highly available MySQL for your Apps.
+cloudamqp        lemur, tiger*, bunny*, rabbit*, panda*                                               Managed HA RabbitMQ servers in the cloud
+cloudforge       free, standard*, pro*                                                                Development Tools In The Cloud
+elephantsql      turtle, panda*, hippo*, elephant*                                                    PostgreSQL as a Service
+flashreport      trial, basic*, silver*, gold*, platinum*                                             Generate PDF from your data
+ironworker       production*, starter*, developer*, lite                                              Job Scheduling and Processing
+loadimpact       lifree, li100*, li500*, li1000*                                                      Performance testing for DevOps
+memcachedcloud   100mb*, 250mb*, 500mb*, 1gb*, 2-5gb*, 5gb*, 30mb                                     Enterprise-Class Memcached for Developers
+memcachier       dev, 100*, 250*, 500*, 1000*, 2000*, 5000*, 7500*, 10000*, 20000*, 50000*, 100000*   The easiest, most advanced memcache.
+mlab             sandbox                                                                              Fully managed MongoDB-as-a-Service
+newrelic         standard                                                                             Manage and monitor your apps
+pubnub           free                                                                                 Build Realtime Apps that Scale
+rediscloud       100mb*, 250mb*, 500mb*, 1gb*, 2-5gb*, 5gb*, 10gb*, 50gb*, 30mb                       Enterprise-Class Redis for Developers
+searchify        small*, plus*, pro*                                                                  Custom search you control
+searchly         small*, micro*, professional*, advanced*, starter, business*, enterprise*            Search Made Simple. Powered-by Elasticsearch
+sendgrid         free, bronze*, silver*                                                               Email Delivery. Simplified.
+ssl              basic*                                                                               Upload your SSL certificate for your app(s) on your custom domain
+stamplay         plus*, premium*, core, starter*                                                      API-first development platform
+statica          starter, spike*, micro*, medium*, large*, enterprise*, premium*                      Enterprise Static IP Addresses
+temporize        small*, medium*, large*                                                              Simple and flexible job scheduling for your application
+
+* These service plans have an associated cost. Creating a service instance will incur this cost.
+
+TIP:  Use 'cf marketplace -s SERVICE' to view descriptions of individual plans of a given service.
+
+D:\Kishan\Workspaces\PCF-Workspace>cd files SampleSpringRest logs/env.log
+The system cannot find the path specified.
+
+D:\Kishan\Workspaces\PCF-Workspace>cf files SampleSpringRest logs/env.log
+FAILED
+The app is running on the Diego backend, which does not support this command.
+
+D:\Kishan\Workspaces\PCF-Workspace>cf env SampleSpringRest
+Getting env variables for app SampleSpringRest in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+OK
+
+System-Provided:
+
+
+{
+ "VCAP_APPLICATION": {
+  "application_id": "7e89abf7-1980-4452-925e-3e38b95ae9dc",
+  "application_name": "SampleSpringRest",
+  "application_uris": [
+   "SampleSpringRest.cfapps.io"
+  ],
+  "application_version": "3088cd1b-3a0e-48a1-9e47-53f6ba93ab39",
+  "limits": {
+   "disk": 512,
+   "fds": 16384,
+   "mem": 256
+  },
+  "name": "SampleSpringRest",
+  "space_id": "8f70aec9-0b11-45e1-a416-a68ff0960141",
+  "space_name": "development",
+  "uris": [
+   "SampleSpringRest.cfapps.io"
+  ],
+  "users": null,
+  "version": "3088cd1b-3a0e-48a1-9e47-53f6ba93ab39"
+ }
+}
+
+No user-defined env variables have been set
+
+No running env variables have been set
+
+No staging env variables have been set
+
+
+D:\Kishan\Workspaces\PCF-Workspace>cf set-env SampleSpringRest serviceHost 192.168.100.190
+Setting env variable 'serviceHost' to '192.168.100.190' for app SampleSpringRest in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+OK
+TIP: Use 'cf restage SampleSpringRest' to ensure your env variable changes take effect
+
+D:\Kishan\Workspaces\PCF-Workspace>cf env SampleSpringRest
+Getting env variables for app SampleSpringRest in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+OK
+
+System-Provided:
+
+
+{
+ "VCAP_APPLICATION": {
+  "application_id": "7e89abf7-1980-4452-925e-3e38b95ae9dc",
+  "application_name": "SampleSpringRest",
+  "application_uris": [
+   "SampleSpringRest.cfapps.io"
+  ],
+  "application_version": "3088cd1b-3a0e-48a1-9e47-53f6ba93ab39",
+  "limits": {
+   "disk": 512,
+   "fds": 16384,
+   "mem": 256
+  },
+  "name": "SampleSpringRest",
+  "space_id": "8f70aec9-0b11-45e1-a416-a68ff0960141",
+  "space_name": "development",
+  "uris": [
+   "SampleSpringRest.cfapps.io"
+  ],
+  "users": null,
+  "version": "3088cd1b-3a0e-48a1-9e47-53f6ba93ab39"
+ }
+}
+
+User-Provided:
+serviceHost: 192.168.100.190
+
+No running env variables have been set
+
+No staging env variables have been set
+
+
+D:\Kishan\Workspaces\PCF-Workspace>cf restage SampleSpringRest
+Restaging app SampleSpringRest in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+
+D:\Kishan\Workspaces\PCF-Workspace>cf services
+Getting services in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+OK
+
+name           service       plan     bound apps   last operation
+cf-spring-db   elephantsql   turtle   cf-spring    create succeeded
+
+D:\Kishan\Workspaces\PCF-Workspace>cf create-service
+FAILED
+Incorrect Usage. Requires service, service plan, service instance as arguments
+
+NAME:
+   create-service - Create a service instance
+
+USAGE:
+   cf create-service SERVICE PLAN SERVICE_INSTANCE [-c PARAMETERS_AS_JSON] [-t TAGS]
+
+   Optionally provide service-specific configuration parameters in a valid JSON object in-line:
+
+   cf create-service SERVICE PLAN SERVICE_INSTANCE -c '{"name":"value","name":"value"}'
+
+   Optionally provide a file containing service-specific configuration parameters in a valid JSON object.
+   The path to the parameters file can be an absolute or relative path to a file:
+
+   cf create-service SERVICE PLAN SERVICE_INSTANCE -c PATH_TO_FILE
+
+   Example of valid JSON object:
+   {
+      "cluster_nodes": {
+         "count": 5,
+         "memory_mb": 1024
+      }
+   }
+
+TIP:
+   Use 'cf create-user-provided-service' to make user-provided services available to CF apps
+
+EXAMPLES:
+   Linux/Mac:
+      cf create-service db-service silver mydb -c '{"ram_gb":4}'
+
+   Windows Command Line:
+      cf create-service db-service silver mydb -c "{\"ram_gb\":4}"
+
+   Windows PowerShell:
+      cf create-service db-service silver mydb -c '{\"ram_gb\":4}'
+
+   cf create-service db-service silver mydb -c ~/workspace/tmp/instance_config.json
+
+   cf create-service db-service silver mydb -t "list, of, tags"
+
+ALIAS:
+   cs
+
+OPTIONS:
+   -c      Valid JSON object containing service-specific configuration parameters, provided either in-line or in a file. For a list of supported configuration parameter
+s, see documentation for the particular service offering.
+   -t      User provided tags
+
+D:\Kishan\Workspaces\PCF-Workspace>cf bind-service
+FAILED
+Incorrect Usage. Requires APP_NAME and SERVICE_INSTANCE as arguments
+
+NAME:
+   bind-service - Bind a service instance to an app
+
+USAGE:
+   cf bind-service APP_NAME SERVICE_INSTANCE [-c PARAMETERS_AS_JSON]
+
+   Optionally provide service-specific configuration parameters in a valid JSON object in-line:
+
+   cf bind-service APP_NAME SERVICE_INSTANCE -c '{"name":"value","name":"value"}'
+
+   Optionally provide a file containing service-specific configuration parameters in a valid JSON object.
+   The path to the parameters file can be an absolute or relative path to a file.
+   cf bind-service APP_NAME SERVICE_INSTANCE -c PATH_TO_FILE
+
+   Example of valid JSON object:
+   {
+      "permissions": "read-only"
+   }
+
+EXAMPLES:
+   Linux/Mac:
+      cf bind-service myapp mydb -c '{"permissions":"read-only"}'
+
+   Windows Command Line:
+      cf bind-service myapp mydb -c "{\"permissions\":\"read-only\"}"
+
+   Windows PowerShell:
+      cf bind-service myapp mydb -c '{\"permissions\":\"read-only\"}'
+
+   cf bind-service myapp mydb -c ~/workspace/tmp/instance_config.json
+
+ALIAS:
+   bs
+
+OPTIONS:
+   -c      Valid JSON object containing service-specific configuration parameters, provided either in-line or in a file. For a list of supported configuration parameter
+s, see documentation for the particular service offering.
+
+D:\Kishan\Workspaces\PCF-Workspace>cf app SampleSpringRest
+Showing health and status for app SampleSpringRest in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+OK
+
+requested state: started
+instances: 1/1
+usage: 256M x 1 instances
+urls: SampleSpringRest.cfapps.io
+last uploaded: Mon Sep 26 08:36:36 UTC 2016
+stack: cflinuxfs2
+buildpack: java-buildpack=v3.9-offline-https://github.com/cloudfoundry/java-buildpack.git#b050954 open-jdk-like-jre=1.8.0_101 open-jdk-like-memory-calculator=2.0.2_RELE
+ASE spring-auto-reconfiguration=1.10.0_RELEASE tomcat-access-logging-support=2.5.0_RELEASE tomc...
+
+     state     since                    cpu    memory           disk             details
+#0   running   2016-09-26 03:17:38 PM   0.3%   210.7M of 256M   137.9M of 512M
+
+D:\Kishan\Workspaces\PCF-Workspace>
