@@ -18,7 +18,7 @@ D:\Kishan\Workspaces\PCF-Workspace>cd cf-sample-app-spring
 D:\Kishan\Workspaces\PCF-Workspace\cf-sample-app-spring>cf login -a https://api.run.pivotal.io
 API endpoint: https://api.run.pivotal.io
 
-Email> kishansharma.narayanan@cognizant.com
+Email> 
 
 Password>
 Authenticating...
@@ -31,14 +31,14 @@ Targeted space development
 
 
 API endpoint:   https://api.run.pivotal.io (API version: 2.61.0)
-User:           kishansharma.narayanan@cognizant.com
+User:           
 Org:            kishan-org
 Space:          development
 
 D:\Kishan\Workspaces\PCF-Workspace\cf-sample-app-spring>cf push
 Using manifest file D:\Kishan\Workspaces\PCF-Workspace\cf-sample-app-spring\manifest.yml
 
-Creating app cf-spring in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Creating app cf-spring in org kishan-org / space development as ...
 OK
 
 Creating route cf-spring-subvertebral-stoplight.cfapps.io...
@@ -53,7 +53,7 @@ Uploading 1M, 44 files
 Done uploading
 OK
 
-Starting app cf-spring in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Starting app cf-spring in org kishan-org / space development as ...
 Downloading dotnet_core_buildpack_beta...
 Downloading ruby_buildpack...
 Downloading java_buildpack...
@@ -109,7 +109,7 @@ space:64m..,stack:228k.. -memoryWeights=heap:65,metaspace:10,native:15,stack:10 
 SERVER_PORT=$PORT JAVA_HOME=$PWD/.java-buildpack/open_jdk_jre JAVA_OPTS="-Djava.io.tmpdir=$TMPDIR -XX:OnOutOfMemoryError=$PWD/.java-buildpack/open_jdk_jre/bin/killjava.
 sh $CALCULATED_MEMORY" exec $PWD/.java-buildpack/spring_boot_cli/bin/spring run app.groovy`
 
-Showing health and status for app cf-spring in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Showing health and status for app cf-spring in org kishan-org / space development as ...
 OK
 
 requested state: started
@@ -125,7 +125,7 @@ ASE spring-boot-cli=1.4.0_RELEASE
 #0   running   2016-09-15 05:40:59 PM   0.0%   279.1M of 512M   155M of 1G
 
 D:\Kishan\Workspaces\PCF-Workspace\cf-sample-app-spring>cf logs cf-spring --recent
-Connected, dumping recent logs for app cf-spring in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Connected, dumping recent logs for app cf-spring in org kishan-org / space development as ...
 
 2016-09-15T17:39:26.19+0530 [API/7]      OUT Created app with guid 7416259d-2763-49e2-a71a-43e417396edf
 2016-09-15T17:39:31.89+0530 [API/4]      OUT Updated app with guid 7416259d-2763-49e2-a71a-43e417396edf ({"route"=>"b95d915f-2287-48f6-ab60-ce6526820ffd", :verb=>"add",
@@ -231,7 +231,7 @@ o handler of type [class org.springframework.web.servlet.resource.ResourceHttpRe
 
 D:\Kishan\Workspaces\PCF-Workspace\cf-sample-app-spring>
 D:\Kishan\Workspaces\PCF-Workspace\cf-sample-app-spring>cf marketplace -s elephantsql
-Getting service plan information for service elephantsql as kishansharma.narayanan@cognizant.com...
+Getting service plan information for service elephantsql as ...
 OK
 
 service plan   description                                            free or paid
@@ -241,19 +241,19 @@ hippo          300 concurrent connections, 100 GB Storage             paid
 elephant       300 concurrent connections, 1000 GB Storage, 500Mbps   paid
 
 D:\Kishan\Workspaces\PCF-Workspace\cf-sample-app-spring>cf create-service elephantsql turtle cf-spring-db
-Creating service instance cf-spring-db in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Creating service instance cf-spring-db in org kishan-org / space development as ...
 OK
 
 D:\Kishan\Workspaces\PCF-Workspace\cf-sample-app-spring>cf bind-service cf-spring cf-spring-db
-Binding service cf-spring-db to app cf-spring in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Binding service cf-spring-db to app cf-spring in org kishan-org / space development as ...
 OK
 TIP: Use 'cf restage cf-spring' to ensure your env variable changes take effect
 
 D:\Kishan\Workspaces\PCF-Workspace\cf-sample-app-spring>cf restart cf-spring
-Stopping app cf-spring in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Stopping app cf-spring in org kishan-org / space development as ...
 OK
 
-Starting app cf-spring in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Starting app cf-spring in org kishan-org / space development as ...
 
 0 of 1 instances running, 1 starting
 0 of 1 instances running, 1 starting
@@ -270,7 +270,7 @@ space:64m..,stack:228k.. -memoryWeights=heap:65,metaspace:10,native:15,stack:10 
 SERVER_PORT=$PORT JAVA_HOME=$PWD/.java-buildpack/open_jdk_jre JAVA_OPTS="-Djava.io.tmpdir=$TMPDIR -XX:OnOutOfMemoryError=$PWD/.java-buildpack/open_jdk_jre/bin/killjava.
 sh $CALCULATED_MEMORY" exec $PWD/.java-buildpack/spring_boot_cli/bin/spring run app.groovy`
 
-Showing health and status for app cf-spring in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Showing health and status for app cf-spring in org kishan-org / space development as ...
 OK
 
 requested state: started
@@ -286,14 +286,14 @@ ASE spring-boot-cli=1.4.0_RELEASE
 #0   running   2016-09-15 05:48:05 PM   0.0%   292.8M of 512M   154.9M of 1G
 
 D:\Kishan\Workspaces\PCF-Workspace\cf-sample-app-spring>cf services
-Getting services in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Getting services in org kishan-org / space development as ...
 OK
 
 name           service       plan     bound apps   last operation
 cf-spring-db   elephantsql   turtle   cf-spring    create succeeded
 
 D:\Kishan\Workspaces\PCF-Workspace\cf-sample-app-spring>cf app cf-spring
-Showing health and status for app cf-spring in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Showing health and status for app cf-spring in org kishan-org / space development as ...
 OK
 
 requested state: started
@@ -443,7 +443,7 @@ vcap@48d0ba5d-d31c-468c-521e-f523d16f998f:~/app$ cd FAILED
 Error: wait: remote command exited without exit status or exit signal
 
 D:\Kishan\Workspaces\PCF-Workspace>cf marketplace
-Getting services from marketplace in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Getting services from marketplace in org kishan-org / space development as ...
 OK
 
 service          plans                                                                                description
@@ -723,7 +723,7 @@ GLOBAL OPTIONS:
    -v                                 Print API request diagnostics to stdout
 
 D:\Kishan\Workspaces\PCF-Workspace>cf apps
-Getting apps in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Getting apps in org kishan-org / space development as ...
 OK
 
 name        requested state   instances   memory   disk   urls
@@ -733,7 +733,7 @@ D:\Kishan\Workspaces\PCF-Workspace>cf cf-spring
 'cf-spring' is not a registered command. See 'cf help'
 
 D:\Kishan\Workspaces\PCF-Workspace>cf env cf-spring
-Getting env variables for app cf-spring in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Getting env variables for app cf-spring in org kishan-org / space development as ...
 OK
 
 System-Provided:
@@ -808,14 +808,14 @@ No staging env variables have been set
 
 
 D:\Kishan\Workspaces\PCF-Workspace>cf services
-Getting services in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Getting services in org kishan-org / space development as ...
 OK
 
 name           service       plan     bound apps   last operation
 cf-spring-db   elephantsql   turtle   cf-spring    create succeeded
 
 D:\Kishan\Workspaces\PCF-Workspace>cf feature-flags
-Retrieving status of all flagged features as kishansharma.narayanan@cognizant.com...
+Retrieving status of all flagged features as ...
 OK
 
 Features                               State
@@ -855,7 +855,7 @@ OPTIONS:
    --skip-remote-execution, -N      Do not execute a remote command
 
 D:\Kishan\Workspaces\PCF-Workspace>cf apps
-Getting apps in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Getting apps in org kishan-org / space development as ...
 OK
 
 name               requested state   instances   memory   disk   urls
@@ -1340,7 +1340,7 @@ GLOBAL OPTIONS:
    -v                                 Print API request diagnostics to stdout
 
 D:\Kishan\Workspaces\PCF-Workspace>cf marketplace
-Getting services from marketplace in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Getting services from marketplace in org kishan-org / space development as ...
 OK
 
 service          plans                                                                                description
@@ -1382,7 +1382,7 @@ FAILED
 The app is running on the Diego backend, which does not support this command.
 
 D:\Kishan\Workspaces\PCF-Workspace>cf env SampleSpringRest
-Getting env variables for app SampleSpringRest in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Getting env variables for app SampleSpringRest in org kishan-org / space development as ...
 OK
 
 System-Provided:
@@ -1420,12 +1420,12 @@ No staging env variables have been set
 
 
 D:\Kishan\Workspaces\PCF-Workspace>cf set-env SampleSpringRest serviceHost 192.168.100.190
-Setting env variable 'serviceHost' to '192.168.100.190' for app SampleSpringRest in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Setting env variable 'serviceHost' to '192.168.100.190' for app SampleSpringRest in org kishan-org / space development as ...
 OK
 TIP: Use 'cf restage SampleSpringRest' to ensure your env variable changes take effect
 
 D:\Kishan\Workspaces\PCF-Workspace>cf env SampleSpringRest
-Getting env variables for app SampleSpringRest in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Getting env variables for app SampleSpringRest in org kishan-org / space development as ...
 OK
 
 System-Provided:
@@ -1464,10 +1464,10 @@ No staging env variables have been set
 
 
 D:\Kishan\Workspaces\PCF-Workspace>cf restage SampleSpringRest
-Restaging app SampleSpringRest in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Restaging app SampleSpringRest in org kishan-org / space development as ...
 
 D:\Kishan\Workspaces\PCF-Workspace>cf services
-Getting services in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Getting services in org kishan-org / space development as ...
 OK
 
 name           service       plan     bound apps   last operation
@@ -1568,7 +1568,7 @@ OPTIONS:
 s, see documentation for the particular service offering.
 
 D:\Kishan\Workspaces\PCF-Workspace>cf app SampleSpringRest
-Showing health and status for app SampleSpringRest in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Showing health and status for app SampleSpringRest in org kishan-org / space development as ...
 OK
 
 requested state: started

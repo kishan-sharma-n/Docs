@@ -1,7 +1,7 @@
 D:\>cf login -a https://api.run.pivotal.io
 API endpoint: https://api.run.pivotal.io
 
-Email> kishansharma.narayanan@cognizant.com
+Email> 
 
 Password>
 Authenticating...
@@ -12,15 +12,15 @@ Targeted org kishan-org
 Targeted space development
 
 D:\>cf create-service rediscloud 30mb redis
-Creating service instance redis in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Creating service instance redis in org kishan-org / space development as ...
 OK
 
 D:\>cf create-service cloudamqp lemur rabbit
-Creating service instance rabbit in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Creating service instance rabbit in org kishan-org / space development as ...
 OK
 
 D:\Kishan\Workspaces\SpringDataFlow\Jars\CF>cf push dataflow-server-kishan -m 1G --no-start -p spring-cloud-dataflow-server-cloudfoundry-1.0.1.RELEASE.jar
-Creating app dataflow-server-kishan in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Creating app dataflow-server-kishan in org kishan-org / space development as ...
 OK
 
 Creating route dataflow-server-kishan.cfapps.io...
@@ -36,18 +36,18 @@ Done uploading
 OK
 
 D:\Kishan\Workspaces\SpringDataFlow\Jars\CF>cf bind-service dataflow-server-kishan redis
-Binding service redis to app dataflow-server-kishan in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Binding service redis to app dataflow-server-kishan in org kishan-org / space development as ...
 OK
 TIP: Use 'cf restage dataflow-server-kishan' to ensure your env variable changes take effect
 
 D:\Kishan\Workspaces\SpringDataFlow\Jars\CF>cf bind-service dataflow-server-kishan cf-spring-db
-Binding service cf-spring-db to app dataflow-server-kishan in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Binding service cf-spring-db to app dataflow-server-kishan in org kishan-org / space development as ...
 OK
 TIP: Use 'cf restage dataflow-server-kishan' to ensure your env variable changes take effect
 
 D:\Kishan\Workspaces\SpringDataFlow\Jars\CF>cf restage dataflow-server-kishan
-Restaging app dataflow-server-kishan in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
-Failed to watch staging of app dataflow-server-kishan in org kishan-org / space development as kishansharma.narayanan@cognizant.com...
+Restaging app dataflow-server-kishan in org kishan-org / space development as ...
+Failed to watch staging of app dataflow-server-kishan in org kishan-org / space development as ...
 
 
 cf set-env dataflow-server-kishan SPRING_CLOUD_DEPLOYER_CLOUDFOUNDRY_URL https://api.run.pivotal.io
@@ -55,8 +55,8 @@ cf set-env dataflow-server-kishan SPRING_CLOUD_DEPLOYER_CLOUDFOUNDRY_ORG kishan-
 cf set-env dataflow-server-kishan SPRING_CLOUD_DEPLOYER_CLOUDFOUNDRY_SPACE development
 cf set-env dataflow-server-kishan SPRING_CLOUD_DEPLOYER_CLOUDFOUNDRY_DOMAIN cfapps.io
 cf set-env dataflow-server-kishan SPRING_CLOUD_DEPLOYER_CLOUDFOUNDRY_STREAM_SERVICES rabbit
-cf set-env dataflow-server-kishan SPRING_CLOUD_DEPLOYER_CLOUDFOUNDRY_USERNAME kishansharma.narayanan@cognizant.com
-cf set-env dataflow-server-kishan SPRING_CLOUD_DEPLOYER_CLOUDFOUNDRY_PASSWORD S@iby@1985
+cf set-env dataflow-server-kishan SPRING_CLOUD_DEPLOYER_CLOUDFOUNDRY_USERNAME <USERNAME>
+cf set-env dataflow-server-kishan SPRING_CLOUD_DEPLOYER_CLOUDFOUNDRY_PASSWORD <PASSWORD>
 cf set-env dataflow-server-kishan SPRING_CLOUD_DEPLOYER_CLOUDFOUNDRY_SKIP_SSL_VALIDATION false
 cf set-env dataflow-server-kishan SPRING_CLOUD_DEPLOYER_CLOUDFOUNDRY_STREAM_MEMORY 512
 cf set-env dataflow-server-kishan SPRING_CLOUD_DEPLOYER_CLOUDFOUNDRY_STREAM_DISK 1024
